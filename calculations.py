@@ -77,7 +77,6 @@ def calculate_average_values(data):
     CT_AVERAGE = 0
     ER_AVERAGE = 0
     CP_AVERAGE = 0
-    CP_MIN_AVERAGE = 0
     for video in data:
         CT_AVERAGE += calculate_CT(video)
         ER_AVERAGE += calculate_ER(video)

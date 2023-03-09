@@ -10,7 +10,7 @@ from threading import Thread
 import functools
 
 api_key = 'AIzaSyBbvIBQeZfb5SG01Y-10krITgJGZ4VRZkw'
-# Иван Дудь
+# Юрий Дудь
 youtube_channel_id = 'UCMCgOm8GZkHp8zJ6l7_hIuA'
 
 youtube = build(
