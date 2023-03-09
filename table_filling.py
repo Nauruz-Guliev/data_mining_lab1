@@ -1,29 +1,21 @@
 from googleapiclient.discovery import build
-import pandas as pd
-import seaborn as sns
+
 from urlextract import URLExtract
 import psycopg2
 import datetime
-import test
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 import urllib.request as urllib2
-from urllib.parse import urlparse
-from urllib.parse import urlparse
-from urllib.request import Request, urlopen
-import urllib.request as urllib2
-import test
-import multiprocessing
-import test
 from threading import Thread
 import functools
 
 api_key = 'AIzaSyBbvIBQeZfb5SG01Y-10krITgJGZ4VRZkw'
-# Иван Вдудь
+# Иван Дудь
 youtube_channel_id = 'UCMCgOm8GZkHp8zJ6l7_hIuA'
 
 youtube = build(
     'youtube', 'v3', developerKey=api_key)
+start_date = '01012022'
 
 
 def get_channel_stats(youtube, channel_id):
@@ -39,8 +31,6 @@ def get_channel_stats(youtube, channel_id):
                 playlist_id=response['items'][0]['contentDetails']['relatedPlaylists']['uploads'])
     return data
 
-
-## Function to get video ids
 
 
 channel_data = get_channel_stats(youtube, youtube_channel_id)
@@ -108,7 +98,7 @@ def timeout(limit=None):
     if limit is None:
         limit = DEFAULT_TIMEOUT
     if limit <= 0:
-        raise TimeoutError() # why not ValueError here?
+        raise TimeoutError()
     def wrap(function):
         return _Timeout(function,limit)
     return wrap
@@ -168,7 +158,6 @@ def parse_url(urlToOpen):
         return extract_url(request.url)
     except Exception as e:
         return extract_url(urlToOpen)
-    return result
 
 
 def get_parsed_url(url):
@@ -220,7 +209,6 @@ def get_recent_video_details(video_details, date):
     return sorted_video_details
 
 
-start_date = '01012022'
 recent_video_details = get_recent_video_details(video_details, start_date)
 
 
